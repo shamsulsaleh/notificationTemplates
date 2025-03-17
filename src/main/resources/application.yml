@@ -1,0 +1,24 @@
+server:
+  port: ${NOTI_PORT}
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  profiles:
+    active: uat
+  datasource:
+    url: jdbc:mariadb://${MARIADB_HOST}:${MARIADB_PORT}/test?useSSL=false
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${MARIADB_USER}
+    password: ${MARIADB_PWD}
+    hikari:
+      maximum-pool-size: ${SPRING_DATASOURCE_HIKARI_MAXIMUMPOOLSIZE}
+    
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    
+app:
+  template:
+    location: ${APP_TEMPLATE_LOCATION}
